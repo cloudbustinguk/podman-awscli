@@ -9,6 +9,6 @@ ENV AWSCLI_VERSION=1.19.72 \
 RUN dnf install ${DNF_OPTS} python38 python3-pip podman crun && \
     dnf -y clean all && \
     pip3 install ${PIP_OPTS} awscli==${AWSCLI_VERSION} && \
-    echo cgroup_manager="cgroupfs" >> /etc/containers/storage.conf
+    echo -e "[engine]\ncgroup_manager="cgroupfs" >> /etc/containers/containers.conf
 
 CMD [ "/bin/bash" ]
